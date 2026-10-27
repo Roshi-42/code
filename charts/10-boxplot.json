@@ -1,0 +1,207 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top ten FrogID species, latitude of occurrence records. Boxes Q1–Q3, line median, whiskers inlier extrema within 1.5 IQR. Obscured coordinates and observer effort may bias distribution. Outliers not plotted.",
+  "title": {
+    "text": "How Far North and South Are Common Frogs Recorded?",
+    "subtitle": "Latitude distributions of FrogID occurrence records • 2017–2024 • top 10 recorded species",
+    "fontSize": 14,
+    "subtitleFontSize": 11,
+    "anchor": "start",
+    "color": "#173D3B"
+  },
+  "data": {
+    "url": "data/frog_species_latitude_boxplot.csv"
+  },
+  "width": "container",
+  "height": {
+    "step": 38
+  },
+  "encoding": {
+    "y": {
+      "field": "common_name",
+      "type": "nominal",
+      "sort": {
+        "field": "median_lat",
+        "order": "ascending"
+      },
+      "axis": {
+        "title": null,
+        "labelFontSize": 11,
+        "labelLimit": 240
+      }
+    },
+    "tooltip": [
+      {
+        "field": "common_name",
+        "type": "nominal",
+        "title": "Frog species"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Occurrence records"
+      },
+      {
+        "field": "whisker_south_lat",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "South whisker (°)"
+      },
+      {
+        "field": "q1_lat",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "25th percentile (°)"
+      },
+      {
+        "field": "median_lat",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "Median latitude (°)"
+      },
+      {
+        "field": "q3_lat",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "75th percentile (°)"
+      },
+      {
+        "field": "whisker_north_lat",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "North whisker (°)"
+      },
+      {
+        "field": "outlier_records",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Outside whiskers (not plotted)"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#315B50",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "whisker_south_lat",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -45,
+              -9
+            ]
+          },
+          "axis": {
+            "title": "Latitude (°S) — south to north",
+            "values": [
+              -45,
+              -40,
+              -35,
+              -30,
+              -25,
+              -20,
+              -15,
+              -10
+            ],
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "grid": true
+          }
+        },
+        "x2": {
+          "field": "whisker_north_lat"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "size": 20,
+        "color": "#73B69B",
+        "stroke": "#315B50",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "q1_lat",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "q3_lat"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "orient": "vertical",
+        "size": 25,
+        "thickness": 3,
+        "color": "#173D3B"
+      },
+      "encoding": {
+        "x": {
+          "field": "median_lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "orient": "vertical",
+        "size": 14,
+        "thickness": 1.5,
+        "color": "#315B50"
+      },
+      "encoding": {
+        "x": {
+          "field": "whisker_south_lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "tick",
+        "orient": "vertical",
+        "size": 14,
+        "thickness": 1.5,
+        "color": "#315B50"
+      },
+      "encoding": {
+        "x": {
+          "field": "whisker_north_lat",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  },
+  "transform": [
+    {
+      "lookup": "species",
+      "from": {
+        "data": {
+          "url": "data/frog_common_names.csv"
+        },
+        "key": "species",
+        "fields": [
+          "common_name"
+        ]
+      }
+    }
+  ]
+}

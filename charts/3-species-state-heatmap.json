@@ -1,0 +1,143 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 10 frog species nationally, compared across Australian states using FrogID 7.0.",
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/top10_species_by_state.csv"
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "#FFFFFF",
+    "strokeWidth": 1.5,
+    "cornerRadius": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": "Australian state or territory",
+      "sort": [
+        "Western Australia",
+        "Northern Territory",
+        "South Australia",
+        "Queensland",
+        "New South Wales",
+        "Victoria",
+        "Australian Capital Territory",
+        "Tasmania"
+      ],
+      "axis": {
+        "labelAngle": -90,
+        "labelLimit": 0,
+        "labelFontSize": 11,
+        "labelOverlap": false,
+        "labelPadding": 8,
+        "titlePadding": 12,
+        "minExtent": 180,
+        "maxExtent": 180
+      }
+    },
+    "y": {
+      "field": "common_name",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Common Eastern Froglet",
+        "Striped Marsh Frog",
+        "Peron’s Tree Frog",
+        "Eastern Dwarf Tree Frog",
+        "Spotted Marsh Frog",
+        "Plains Froglet",
+        "Eastern Banjo Frog",
+        "Green Tree Frog",
+        "Southern Brown Tree Frog",
+        "Whistling Tree Frog"
+      ],
+      "axis": {
+        "labelFontSize": 11,
+        "labelLimit": 0,
+        "minExtent": 155,
+        "maxExtent": 155
+      }
+    },
+    "color": {
+      "field": "state_share_pct",
+      "type": "quantitative",
+      "title": "Share of state records (%)",
+      "scale": {
+        "scheme": "tealblues",
+        "domainMin": 0
+      },
+      "legend": {
+        "orient": "none",
+        "gradientLength": 180,
+        "format": ".0f",
+        "direction": "horizontal",
+        "titleFontSize": 11,
+        "gradientThickness": 12,
+        "titleOrient": "top",
+        "titlePadding": 6,
+        "labelFontSize": 10,
+        "legendX": 0,
+        "legendY": -50
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "common_name",
+        "type": "nominal",
+        "title": "Frog species"
+      },
+      {
+        "field": "records",
+        "type": "quantitative",
+        "title": "Occurrence records",
+        "format": ","
+      },
+      {
+        "field": "state_share_pct",
+        "type": "quantitative",
+        "title": "Share of state records (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  },
+  "transform": [
+    {
+      "lookup": "species",
+      "from": {
+        "data": {
+          "url": "data/frog_common_names.csv"
+        },
+        "key": "species",
+        "fields": [
+          "common_name"
+        ]
+      }
+    }
+  ],
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": {
+    "top": 60,
+    "right": 5,
+    "bottom": 5,
+    "left": 5
+  }
+}

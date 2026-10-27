@@ -1,0 +1,290 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Recorded frog species relative to the number expected for each state's land area, using a species–area power-law fit.",
+  "title": {
+    "text": "Frog Species Richness Relative to State Size",
+    "subtitle": "Observed ÷ expected distinct species, given each state's land area, 2017–2024",
+    "fontSize": 17,
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "color": "#173D3B"
+  },
+  "width": "container",
+  "height": 500,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
+    ],
+    "scale": 620
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/species_by_state.csv"
+            },
+            "key": "state",
+            "fields": [
+              "species_count"
+            ]
+          }
+        },
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/state_land_areas.csv"
+            },
+            "key": "state",
+            "fields": [
+              "area_km2"
+            ]
+          }
+        },
+        {
+          "calculate": "isValid(datum.species_count) && isValid(datum.area_km2) && datum.species_count > 0 && datum.area_km2 > 0",
+          "as": "has_data"
+        },
+        {
+          "calculate": "datum.has_data ? log(datum.area_km2) : null",
+          "as": "log_area"
+        },
+        {
+          "calculate": "datum.has_data ? log(datum.species_count) : null",
+          "as": "log_species"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "mean",
+              "field": "log_area",
+              "as": "mean_log_area"
+            },
+            {
+              "op": "mean",
+              "field": "log_species",
+              "as": "mean_log_species"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.has_data ? (datum.log_area - datum.mean_log_area) * (datum.log_species - datum.mean_log_species) : null",
+          "as": "cross_dev"
+        },
+        {
+          "calculate": "datum.has_data ? pow(datum.log_area - datum.mean_log_area, 2) : null",
+          "as": "sq_dev"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "sum",
+              "field": "cross_dev",
+              "as": "sum_cross_dev"
+            },
+            {
+              "op": "sum",
+              "field": "sq_dev",
+              "as": "sum_sq_dev"
+            }
+          ]
+        },
+        {
+          "calculate": "datum.sum_cross_dev / datum.sum_sq_dev",
+          "as": "z_value"
+        },
+        {
+          "calculate": "datum.has_data ? exp(datum.mean_log_species + datum.z_value * (datum.log_area - datum.mean_log_area)) : null",
+          "as": "expected_species"
+        },
+        {
+          "calculate": "datum.has_data ? datum.species_count / datum.expected_species : null",
+          "as": "richness_ratio"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#173D3B",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "richness_ratio",
+          "type": "quantitative",
+          "scale": {
+            "type": "log",
+            "domain": [
+              0.5,
+              2
+            ],
+            "domainMid": 1,
+            "clamp": true,
+            "range": [
+              "#A0612B",
+              "#F4F1E8",
+              "#154C52"
+            ],
+            "unknown": "#E5E7EB"
+          },
+          "legend": {
+            "orient": "right",
+            "title": [
+              "Observed ÷ expected",
+              "species"
+            ],
+            "gradientLength": 220,
+            "gradientThickness": 15,
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "values": [
+              0.5,
+              0.75,
+              1,
+              1.5,
+              2
+            ],
+            "labelExpr": "datum.value === 1 ? '1 (as expected)' : datum.value + '×'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "species_count",
+            "type": "quantitative",
+            "title": "Distinct recorded species",
+            "format": ",.0f"
+          },
+          {
+            "field": "expected_species",
+            "type": "quantitative",
+            "title": "Expected for its area",
+            "format": ",.0f"
+          },
+          {
+            "field": "richness_ratio",
+            "type": "quantitative",
+            "title": "Observed ÷ expected",
+            "format": ".2f"
+          },
+          {
+            "field": "area_km2",
+            "type": "quantitative",
+            "title": "Land area (km²)",
+            "format": ",.0f"
+          },
+          {
+            "field": "z_value",
+            "type": "quantitative",
+            "title": "Fitted z (all states)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state": "WA",
+            "lon": 121,
+            "lat": -26,
+            "align": "center"
+          },
+          {
+            "state": "NT",
+            "lon": 133,
+            "lat": -20,
+            "align": "center"
+          },
+          {
+            "state": "SA",
+            "lon": 135,
+            "lat": -30,
+            "align": "center"
+          },
+          {
+            "state": "QLD",
+            "lon": 144,
+            "lat": -22,
+            "align": "center"
+          },
+          {
+            "state": "NSW",
+            "lon": 147,
+            "lat": -32,
+            "align": "center"
+          },
+          {
+            "state": "VIC",
+            "lon": 144,
+            "lat": -37,
+            "align": "center"
+          },
+          {
+            "state": "TAS",
+            "lon": 147,
+            "lat": -42,
+            "align": "center"
+          },
+          {
+            "state": "ACT",
+            "lon": 150.3,
+            "lat": -35.6,
+            "align": "left"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#FFFFFF",
+        "opacity": 1,
+        "stroke": "#173D35",
+        "strokeWidth": 0.65
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state",
+          "type": "nominal"
+        },
+        "align": {
+          "field": "align",
+          "type": "nominal",
+          "scale": null
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}

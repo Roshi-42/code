@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Privacy-conscious dot density map: each synthetic dot represents approximately 500 FrogID occurrence records aggregated by 1-degree cell. Dots do not show exact observation locations.",
+  "title": {
+    "text": "Where Are FrogID Observations Concentrated?",
+    "subtitle": "One dot \u2248 500 occurrence records \u2022 2017\u20132024 \u2022 dots positioned approximately within 1\u00b0 cells",
+    "anchor": "start",
+    "fontSize": 15,
+    "subtitleFontSize": 11,
+    "color": "#173D3B"
+  },
+  "width": "container",
+  "height": 465,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
+    ],
+    "scale": 620
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EEF2E9",
+        "stroke": "#A9BEB5",
+        "strokeWidth": 0.7
+      }
+    },
+    {
+      "data": {
+        "url": "data/frog_dot_density.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#217F75",
+        "size": 17,
+        "opacity": 0.58
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "cell_label",
+            "type": "nominal",
+            "title": "Approximate grid cell"
+          },
+          {
+            "field": "cell_records",
+            "type": "quantitative",
+            "title": "Occurrence records in 1\u00b0 cell",
+            "format": ","
+          },
+          {
+            "field": "dot_value",
+            "type": "quantitative",
+            "title": "Approx. records per dot",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}
