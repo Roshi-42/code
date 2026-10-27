@@ -1,9 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Australian Frog Atlas species-richness polygons spatially aggregated to state land areas using EPSG:3577. Each state is shaded by the mapped-area-weighted mean richness, not the total distinct species in the state. Atlas coverage is shown in the tooltip.",
-  "title": {
-    "text": "Average Mapped Frog Species Richness",
-    "subtitle": "Australian Frog Atlas • area-weighted average richness across mapped land",
+  "title": {"text": "Average Mapped Frog Species Richness","subtitle": "Australian Frog Atlas • area-weighted average richness across mapped land",
     "fontSize": 14,
     "subtitleFontSize": 11,
     "anchor": "start",
