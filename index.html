@@ -370,6 +370,63 @@
       </p>
     </section>
 
+    <section class="chart-card">
+      <h2>11. What Time of Day Do People Record Frogs?</h2>
+
+      <p class="chart-description">
+        Explore the share of FrogID recording events by local hour from 2017
+        to 2024. Use the dropdown to compare Australia with individual states
+        and territories. Longer, darker segments indicate a larger share of events.
+      </p>
+
+      <div class="recording-clock-layout">
+        <div id="frog-recording-clock"></div>
+        <aside class="recording-clock-guide">
+          <h3>How to read the clock</h3>
+          <p>Start at midnight at the top and follow the hours clockwise.
+            Noon is at the bottom; 6 PM is on the left.</p>
+          <p>Each segment covers one hour. A longer, darker segment means
+            a higher percentage of the selected region's recording events.</p>
+          <p><strong>Find the peak:</strong> the annotation beneath the clock
+            updates when you select a region. Hover over a segment for its
+            exact percentage and recording count.</p>
+        </aside>
+      </div>
+
+      <p class="chart-note">
+        Each segment represents one hour of the day. Percentages are calculated
+        within the selected region. The clock shows recording activity,
+        rather than the number of individual frogs or their overall activity.
+      </p>
+
+      <p class="source">
+        Source: Australian Museum, FrogID Dataset 7.0 (2017–2024).
+      </p>
+    </section>
+
+    <section class="chart-card">
+      <h2>12. When Are Different Frog Species Recorded?</h2>
+
+      <p class="chart-description">
+        Compare hourly recording patterns for the ten most frequently recorded
+        FrogID species. Use the dropdown to highlight a species and hover over
+        its curve for recording counts and percentages.
+      </p>
+
+      <div id="frog-hourly-ridgeline"></div>
+
+      <p class="chart-note">
+        Each ridge shows hourly shares within one species, smoothed for readability.
+        Higher peaks indicate a larger share of that species' recordings, rather
+        than more records than other species. The dashed line marks 8 PM.
+        These patterns reflect recording activity, not a complete measure of frog behaviour.
+      </p>
+
+      <p class="source">
+        Source: Australian Museum, FrogID Dataset 7.0 (2017–2024).
+      </p>
+    </section>
+
   </main>
 
 
@@ -383,8 +440,7 @@
   <script>
 
    
-    
-/* VISUALISATION 1 — FROG ATLAS */
+
 
 vegaEmbed(
   "#frog-richness-map",
@@ -471,6 +527,18 @@ vegaEmbed(
 vegaEmbed(
   "#frog-latitude-boxplot",
   "charts/10-boxplot.json",
+  { actions: false, renderer: "svg" }
+).catch(console.error);
+
+vegaEmbed(
+  "#frog-recording-clock",
+  "charts/11-frog-recording-clock.json",
+  { actions: false, renderer: "svg" }
+).catch(console.error);
+
+vegaEmbed(
+  "#frog-hourly-ridgeline",
+  "charts/12-frog-hourly-ridgeline.json",
   { actions: false, renderer: "svg" }
 ).catch(console.error);
 

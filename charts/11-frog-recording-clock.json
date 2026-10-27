@@ -1,0 +1,303 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Radial hourly profile of unique FrogID audio recording events, local clock time, 2017–2024. Normalised to the selected state's number of recording events.",
+  "width": 420,
+  "height": 430,
+  "params": [
+    {
+      "name": "selectedState",
+      "value": "All Australia",
+      "bind": {
+        "input": "select",
+        "name": "Select state or territory: ",
+        "options": [
+          "All Australia",
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "Western Australia",
+          "South Australia",
+          "Tasmania",
+          "Northern Territory",
+          "Australian Capital Territory",
+          "Other Territories"
+        ]
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/frog_recording_hours_by_state.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "state": "string",
+            "hour": "number",
+            "hour_end": "number",
+            "hour_label": "string",
+            "events": "number",
+            "state_total": "number",
+            "share_pct": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.state === selectedState"
+        }
+      ],
+      "mark": {
+        "type": "arc",
+        "radius2": 32,
+        "padAngle": 0.025,
+        "cornerRadius": 2,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "theta": {
+          "field": "hour",
+          "type": "quantitative",
+          "stack": null,
+          "scale": {
+            "domain": [
+              0,
+              24
+            ],
+            "range": [
+              0,
+              6.283185307179586
+            ]
+          }
+        },
+        "theta2": {
+          "field": "hour_end"
+        },
+        "radius": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              21
+            ],
+            "range": [
+              32,
+              155
+            ]
+          }
+        },
+        "color": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              21
+            ],
+            "range": [
+              "#BFE2D4",
+              "#68B4A2",
+              "#155A59"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "Region"
+          },
+          {
+            "field": "hour_label",
+            "type": "nominal",
+            "title": "Time interval"
+          },
+          {
+            "field": "events",
+            "type": "quantitative",
+            "title": "Recording events",
+            "format": ",.0f"
+          },
+          {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share of region’s events (%)",
+            "format": ".2f"
+          },
+          {
+            "field": "state_total",
+            "type": "quantitative",
+            "title": "Total events in region",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "hour": 0,
+            "label": "Midnight"
+          },
+          {
+            "hour": 3,
+            "label": "3 AM"
+          },
+          {
+            "hour": 6,
+            "label": "6 AM"
+          },
+          {
+            "hour": 9,
+            "label": "9 AM"
+          },
+          {
+            "hour": 12,
+            "label": "Noon"
+          },
+          {
+            "hour": 15,
+            "label": "3 PM"
+          },
+          {
+            "hour": 18,
+            "label": "6 PM"
+          },
+          {
+            "hour": 21,
+            "label": "9 PM"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "radius": 180,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#315C51"
+      },
+      "encoding": {
+        "theta": {
+          "field": "hour",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              24
+            ],
+            "range": [
+              0,
+              6.283185307179586
+            ]
+          }
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "label": "Local time"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#526E65"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/frog_recording_hours_by_state.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "state": "string",
+            "hour": "number",
+            "hour_end": "number",
+            "hour_label": "string",
+            "events": "number",
+            "state_total": "number",
+            "share_pct": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.state === selectedState"
+        },
+        {
+          "window": [
+            {
+              "op": "row_number",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "events",
+              "order": "descending"
+            },
+            {
+              "field": "hour",
+              "order": "ascending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank === 1"
+        },
+        {
+          "calculate": "'Peak: ' + datum.hour_label + ' (' + format(datum.share_pct, '.1f') + '%)'",
+          "as": "peak_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#173D35",
+        "align": "center"
+      },
+      "encoding": {
+        "x": {
+          "value": 210
+        },
+        "y": {
+          "value": 420
+        },
+        "text": {
+          "field": "peak_label"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "theta": "independent"
+    }
+  },
+  "config": {
+    "background": "#FFFFFF",
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  },
+  "padding": 8
+}

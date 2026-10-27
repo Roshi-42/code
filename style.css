@@ -147,7 +147,9 @@ h2 {
 #frog-state-seasons,
 #frog-hotspot-map,
 #frog-dot-density-map,
-#frog-latitude-boxplot {
+#frog-latitude-boxplot,
+#frog-recording-clock,
+#frog-hourly-ridgeline {
   width: 100%;
   min-width: 0;
 }
@@ -300,7 +302,9 @@ h2 {
 
 
 #frog-species-streamgraph select,
-#frog-state-seasons select {
+#frog-state-seasons select,
+#frog-recording-clock select,
+#frog-hourly-ridgeline select {
   margin: 8px;
   padding: 7px 10px;
   border: 1px solid #b7ccc5;
@@ -452,3 +456,84 @@ footer p {
     row-gap: 0;
   }
 }
+
+
+
+#frog-hourly-ridgeline {
+  width: 100%;
+  min-width: 0;
+  margin: 24px 0;
+}
+#frog-hourly-ridgeline .vega-embed {
+  max-width: 100%;
+  width: 100%;
+}
+#frog-hourly-ridgeline svg {
+  max-width: 100%;
+  height: auto;
+}
+#frog-hourly-ridgeline .vega-bindings {
+  margin-top: 14px;
+  font-size: 13px;
+  color: #31554C;
+}
+#frog-hourly-ridgeline select {
+  font: inherit;
+  padding: 7px 10px;
+  border: 1px solid #B7CCC5;
+  border-radius: 6px;
+  background: #fff;
+  color: #173D35;
+  max-width: 100%;
+}
+
+
+#frog-recording-clock .vega-embed {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+}
+
+#frog-recording-clock .vega-bindings {
+  margin-top: 12px;
+}
+
+.recording-clock-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.recording-clock-guide {
+  padding: 16px 20px;
+  background: #f0f6f2;
+  border-radius: 10px;
+  color: #526e65;
+  font-size: 13px;
+}
+
+.recording-clock-guide h3 {
+  margin: 0 0 12px;
+  color: #173d35;
+}
+
+.recording-clock-guide p { margin: 0 0 12px; }
+.recording-clock-guide p:last-child { margin-bottom: 0; }
+
+#frog-recording-clock .vega-bind { font-size: 12px; }
+#frog-recording-clock select { max-width: 100%; margin: 4px 0; }
+
+@media (max-width: 800px) {
+  .recording-clock-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  #frog-recording-clock { max-width: 440px; margin: 0 auto; }
+}
+
+#frog-hourly-ridgeline .vega-embed {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+}
+
+#frog-hourly-ridgeline .vega-bindings { margin-top: 12px; }
+#frog-hourly-ridgeline select { max-width: 100%; }
