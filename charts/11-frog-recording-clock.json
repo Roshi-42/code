@@ -42,6 +42,7 @@
           }
         }
       },
+      
       "transform": [
         {
           "filter": "datum.state === selectedState"
