@@ -21,6 +21,8 @@
 
 
   <header class="hero">
+    <div class="hero-inner">
+    <div class="hero-copy">
     <p class="eyebrow">AUSTRALIAN BIODIVERSITY</p>
 
     <h1>Australia's Changing Chorus</h1>
@@ -29,6 +31,11 @@
       Exploring the diversity, distribution and future
       of Australia's frogs.
     </p>
+    </div>
+    <figure class="hero-visual">
+      <img src="images/green-tree-frog.webp" alt="Green tree frog" width="1100" height="778">
+    </figure>
+    </div>
   </header>
 
   <main>
@@ -54,7 +61,7 @@
     <section class="chart-card">
 
       
-<h2>01. Where Is Frog Diversity Greatest?</h2>
+<h2> Where Is Frog Diversity Greatest?</h2>
 
 <p class="chart-description">
   This map shows how the number of mapped frog species
@@ -101,12 +108,19 @@
 
     <section class="chart-card">
 
-      <h2>02. Which States Have the Highest Recorded Species Density?</h2>
+      <h2>
+        Which States Record More Frog Species
+        Than Expected for Their Size?
+      </h2>
 
       <p class="chart-description">
-        This map compares distinct recorded frog species per 1,000 km²
-        of land area in each state and territory. A logarithmic colour
-        scale makes differences visible across the wide range of values.
+        This map compares the number of frog species
+        recorded in each state with the number predicted
+        by a species-area model fitted to the state data.
+
+        Green regions have more recorded species than
+        predicted, while brown regions have fewer.
+        Recording effort has not been standardised.
       </p>
 
       <div id="state-frog-map"></div>
@@ -153,12 +167,17 @@
     Which Frogs Do Australians Record Most Often?
   </h2>
 
+  <div class="frog-intro-row">
   <p class="chart-description">
     The national ranking reveals Australia's most
     frequently recorded frogs, while the heatmap
     shows how these species feature in FrogID
     observations across states.
   </p>
+  <figure class="frog-feature">
+    <img src="images/striped-marsh-frog.webp" alt="Striped marsh frog" width="950" height="560" loading="lazy">
+  </figure>
+  </div>
 
   <div class="species-comparison">
 
@@ -166,7 +185,7 @@
     <div class="species-panel">
 
       <h3>
-        03. How Do Species Differ Across States?
+        How Do Species Differ Across States?
       </h3>
 
       <p>
@@ -182,7 +201,7 @@
     <div class="species-panel">
 
       <h3>
-        04. Australia's Top 10 Recorded Frogs
+        Australia's Top 10 Recorded Frogs
       </h3>
 
       <p>
@@ -213,7 +232,7 @@
 
 
 <section class="chart-card">
-  <h2>05. How Has Frog Recording Changed Over Time?</h2>
+  <h2> How Has Frog Recording Changed Over Time?</h2>
 
   <p class="chart-description">
     Annual FrogID occurrence records across Australia from 2017 to 2024.
@@ -245,7 +264,7 @@
 
   <div class="seasonal-panel">
 
-    <h3>06. Which Frog Species Are Recorded Most Often Throughout the Year?</h3>
+    <h3>Which Frog Species Are Recorded Most Often Throughout the Year?</h3>
 
     <p>
       Each flowing band represents one of Australia's
@@ -255,25 +274,10 @@
 
     <div id="frog-species-streamgraph"></div>
 
-  </div>
-
-
-  <div class="seasonal-transition">
-
-    <h3>But do all Australian states follow the same seasonal patterns?</h3>
-
-    <p>
-      Australia spans tropical and temperate climates.
-      Compare how the distribution of FrogID recordings
-      changes across states and territories.
-    </p>
-
-  </div>
-
-
+  
   <div class="seasonal-panel">
 
-    <h3>07. Do Frog Recording Seasons Differ Across States?</h3>
+    <h3>Do Frog Recording Seasons Differ Across States?</h3>
 
     <p>
       Each bar shows the percentage of FrogID records
@@ -301,8 +305,9 @@
 
 <section class="chart-card">
 
-  <h2>08. Where Are Australia's Frog Recording Hotspots?</h2>
+  <h2>Where Are Australia's Frog Recording Hotspots?</h2>
 
+  <div class="frog-intro-row">
   <p class="chart-description">
     FrogID observations are not distributed evenly
     across Australia. This map shows the geographic
@@ -310,6 +315,10 @@
     with larger circles indicating more records
     within a one-degree geographic grid cell.
   </p>
+  <figure class="frog-feature">
+    <img src="images/frog-leaf-litter.webp" alt="Frog among leaf litter" width="950" height="633" loading="lazy">
+  </figure>
+  </div>
 
   <div id="frog-hotspot-map"></div>
 
@@ -329,7 +338,7 @@
 
 
 <section class="chart-card">
-  <h2>09. Where Are FrogID Records Concentrated?</h2>
+  <h2>Where Are FrogID Records Concentrated?</h2>
 
   <p class="chart-description">
     Each dot represents approximately 500 FrogID
@@ -349,7 +358,7 @@
 
 
     <section class="chart-card">
-      <h2>10. How Far North and South Are Common Frogs Recorded?</h2>
+      <h2> How Far North and South Are Common Frogs Recorded?</h2>
 
       <p class="chart-description">
         Compare the latitude distributions of Australia's ten most frequently
@@ -371,7 +380,7 @@
     </section>
 
     <section class="chart-card">
-      <h2>11. What Time of Day Do People Record Frogs?</h2>
+      <h2>What Time of Day Do People Record Frogs?</h2>
 
       <p class="chart-description">
         Explore the share of FrogID recording events by local hour from 2017
@@ -405,7 +414,7 @@
     </section>
 
     <section class="chart-card">
-      <h2>12. When Are Different Frog Species Recorded?</h2>
+      <h2>When Are Different Frog Species Recorded?</h2>
 
       <p class="chart-description">
         Compare hourly recording patterns for the ten most frequently recorded

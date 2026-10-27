@@ -1,136 +1,265 @@
 
+:root {
+  --page-green: #E4EFE5;
+  --story-green: #EDF5EE;
+  --card-green: #F7FBF7;
+  --guide-green: #E8F2EA;
+  --forest: #173D35;
+  --forest-deep: #10362F;
+  --moss: #32877E;
+  --leaf: #73B69B;
+  --text-main: #203E36;
+  --text-muted: #4C685E;
+  --text-light: #637D70;
+  --border-green: #CCDED0;
+  --shadow: 0 6px 22px rgba(20, 62, 49, 0.07);
+}
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: #f5f7f3;
-  color: #213e38;
+  background: var(--page-green);
+  color: var(--text-main);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
+a {
+  color: #216F64;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--forest-deep);
+}
+
+a:focus-visible,
+select:focus-visible {
+  outline: 3px solid #68A99C;
+  outline-offset: 3px;
+}
 
 
 .hero {
   position: relative;
-  background: #173d35;
-  color: white;
-  text-align: center;
-  padding: 65px 24px;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(125deg, #10362F 0%, #194C40 60%, #255F4C 100%);
+  color: #FFFFFF;
+  text-align: left;
+  padding: 84px max(62px, calc(50vw - 488px)) 86px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 330px;
+  height: 330px;
+  right: -85px;
+  top: -135px;
+  border: 2px solid rgba(194, 230, 194, 0.16);
+  border-radius: 50%;
+  box-shadow: 0 0 0 40px rgba(194, 230, 194, 0.035),
+              0 0 0 85px rgba(194, 230, 194, 0.028);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 260px;
+  height: 260px;
+  left: -110px;
+  bottom: -170px;
+  border: 2px solid rgba(194, 230, 194, 0.11);
+  border-radius: 50%;
+  box-shadow: 0 0 0 38px rgba(194, 230, 194, 0.035);
+  pointer-events: none;
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: #acd9c0;
-  font-weight: 700;
   margin: 0;
+  color: #B9DFCA;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .hero h1 {
-  font-size: clamp(32px, 5vw, 52px);
+  margin: 16px 0 18px;
+  color: #FFFFFF;
+  font-size: clamp(38px, 5vw, 54px);
   font-weight: 700;
   line-height: 1.15;
-  margin: 16px 0;
-  color: white;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
-  font-size: 16px;
-  color: #d4e7dc;
   max-width: 680px;
-  margin: 0 auto;
+  margin: 0;
+  color: #DBEEE1;
+  font-size: 17px;
   line-height: 1.65;
 }
 
 
-
 main {
-  max-width: 1050px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 35px 22px;
+  padding: 36px 24px 55px;
 }
 
 .intro,
 .story {
-  max-width: 760px;
-  margin: 45px auto;
+  max-width: 800px;
+  margin: 44px 0;
+  padding: 24px 38px;
+  text-align: left;
+  background: var(--story-green);
+  border: 1px solid var(--border-green);
+  border-radius: 16px;
 }
 
 .intro p,
 .story p {
+  max-width: 68ch;
   font-size: 15px;
-  line-height: 1.8;
-  margin: 0 0 16px;
+  line-height: 1.78;
+  margin: 0 0 14px;
 }
 
+.intro p:last-child,
+.story p:last-child {
+  margin-bottom: 0;
+}
 
-
-h2 {
-  color: #173d35;
-  font-weight: 700;
+/* 4. VISIBLE HEADING HIERARCHY */
+h2,
+h3 {
+  color: var(--forest);
   line-height: 1.35;
 }
 
+.intro h2 {
+  margin: 0 0 17px;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.story h2 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 700;
+}
 
 .chart-card > h2,
 .species-section > h2,
-.seasonal-story > h2,
-.intro h2,
-.story h2 {
-  font-size: 16px;
+.seasonal-story > h2 {
+  margin: 0 0 14px;
+  color: var(--forest);
+  font-size: 26px;
   font-weight: 700;
-  margin: 0 0 18px;
-  line-height: 1.4;
+  line-height: 1.33;
 }
 
-/* Chart subheadings */
 .chart-card h3,
 .species-panel h3,
 .seasonal-panel h3 {
-  font-size: 16px;
-  font-weight: 600;
-  color: #173d35;
-  line-height: 1.4;
   margin: 0 0 10px;
+  color: var(--forest);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
+/* 5. SHARED CHART CARDS, NOTES & SOURCES */
 .chart-card {
-  background: #ffffff;
-  padding: 35px;
-  margin: 35px auto;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+  position: relative;
   min-width: 0;
+  margin: 43px 0;
+  padding: 38px;
+  text-align: left;
+  background: var(--card-green);
+  border: 1px solid var(--border-green);
+  border-top: 3px solid var(--leaf);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
 }
 
 .chart-description {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #526e65;
-  margin: 0 0 25px;
+  max-width: 72ch;
+  margin: 0 0 27px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 .chart-note {
-  font-size: 12px;
-  line-height: 1.65;
-  color: #566c63;
-  margin: 20px 0 12px;
+  margin: 22px 0 10px;
+  padding: 10px 13px;
+  background: var(--guide-green);
+  border-left: 3px solid #8FB9A1;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.7;
 }
 
 .source {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #70837a;
   margin: 12px 0 0;
+  color: var(--text-light);
+  font-size: 12px;
+  line-height: 1.65;
 }
 
+/* Optional reading guides that you can add in HTML later */
+.reading-guide {
+  margin: 16px 0 22px;
+  padding: 12px 16px;
+  background: var(--guide-green);
+  border-left: 3px solid var(--moss);
+  border-radius: 0 10px 10px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
 
+.reading-guide h4 {
+  margin: 0 0 5px;
+  color: var(--forest);
+  font-size: 13px;
+}
+
+.reading-guide p {
+  margin: 0;
+}
+
+/* 6. VEGA-LITE EMBEDS — LEFT-ANCHORED, RESPONSIVE
+   Do not change text alignment inside SVG; axis labels and map labels
+   need their original alignment to communicate the data correctly. */
 .vega-embed {
+  display: block;
+  width: 100%;
   max-width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
+}
+
+.vega-bindings {
+  text-align: left;
 }
 
 .vega-embed svg {
@@ -154,74 +283,68 @@ h2 {
   min-width: 0;
 }
 
-
+/* 7. VISUALISATIONS 1 & 2: MAPS */
 #frog-richness-map {
   min-height: 400px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
 }
-
-
 
 #state-frog-map {
   min-height: 430px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
-
-
+/* 8. VISUALISATIONS 3 & 4: TWO SEPARATE MATCHING CARDS */
 .species-section {
   width: 100%;
-  margin: 35px auto;
+  margin: 46px 0;
   padding: 0;
+  text-align: left;
   background: transparent;
-  border-radius: 0;
+  border: 0;
   box-shadow: none;
 }
 
-/* Section heading and description */
-.species-section > h2,
 .species-section > .chart-description {
-  margin-left: 0;
-  margin-right: 0;
+  max-width: 850px;
 }
-
 
 .species-comparison {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
   align-items: stretch;
 }
 
-
 .species-panel {
-  background: #ffffff;
-  padding: 22px 16px;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
   min-width: 0;
-  overflow: visible;
+  padding: 24px 18px;
+  background: var(--card-green);
+  border: 1px solid var(--border-green);
+  border-top: 3px solid var(--leaf);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
 }
+
 .species-panel h3 {
-  font-size: 16px;
-  font-weight: 700;
-  margin: 0 0 10px;
+  font-size: 18px;
+  margin: 0 0 11px;
 }
 
-
-.species-panel p {
-  color: #526e65;
-  font-size: 12px;
+.species-panel > p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 13px;
   line-height: 1.65;
-  margin: 0 0 15px;
 }
-
 
 #species-state-heatmap,
 #top10-frog-chart {
@@ -231,68 +354,66 @@ h2 {
 
 #species-state-heatmap .vega-embed,
 #top10-frog-chart .vega-embed {
-  width: 100%;
   max-width: 100%;
+  width: 100%;
   padding-right: 0;
 }
 
-/* Notes underneath the two cards */
 .species-section > .chart-note,
 .species-section > .source {
   margin-left: 0;
+  margin-right: 0;
 }
 
-
+/* 9. VISUALISATION 5: ANNUAL RECORDING TREND */
 #frog-trend-chart {
   min-height: 380px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
 }
 
-
+/* 10. VISUALISATIONS 6 & 7: SEASONAL CHAPTER */
 .seasonal-story {
-  padding: 35px;
+  padding: 34px;
 }
 
 .seasonal-panel {
-  margin-top: 30px;
+  margin-top: 27px;
 }
 
 .seasonal-panel h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0 0 10px;
+  font-size: 18px;
 }
 
 .seasonal-panel > p {
+  margin: 0 0 15px;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.7;
-  color: #526e65;
-  margin: 0 0 16px;
 }
 
 .seasonal-transition {
-  margin: 32px 0 28px;
-  padding: 0 0 0 15px;
-  border-left: 3px solid #32877e;
-  background: transparent;
-  border-radius: 0;
+  margin: 30px 0 27px;
+  padding: 14px 18px;
+  background: var(--guide-green);
+  border-left: 3px solid var(--moss);
+  border-radius: 0 10px 10px 0;
 }
 
 .seasonal-transition h3 {
-  font-size: 15px;
-  font-weight: 600;
-  color: #315b50;
-  line-height: 1.45;
   margin: 0 0 6px;
+  color: var(--forest);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
 .seasonal-transition p {
+  margin: 0;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.65;
-  color: #526e65;
-  margin: 0;
 }
 
 #frog-species-streamgraph,
@@ -305,31 +426,110 @@ h2 {
 #frog-state-seasons select,
 #frog-recording-clock select,
 #frog-hourly-ridgeline select {
-  margin: 8px;
-  padding: 7px 10px;
-  border: 1px solid #b7ccc5;
-  border-radius: 6px;
-  background: white;
-  color: #173d35;
+  max-width: 100%;
+  margin: 6px 4px;
+  padding: 8px 11px;
+  background: #FFFFFF;
+  border: 1px solid #A7C5B2;
+  border-radius: 8px;
+  color: var(--forest);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
 }
 
+/* 12. VISUALISATION 8: HOTSPOT MAP */
 #frog-hotspot-map {
   min-height: 470px;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 13. VISUALISATION 9: DOT-DENSITY MAP */
+#frog-dot-density-map {
+  margin: 15px 0;
+}
+
+/* 14. VISUALISATION 10: LATITUDE BOX PLOT */
+#frog-latitude-boxplot {
+  margin: 16px 0;
+}
+
+/* 15. VISUALISATION 11: POLAR CLOCK AND READING GUIDE */
+.recording-clock-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+  gap: 26px;
   align-items: center;
 }
 
+#frog-recording-clock .vega-embed {
+  display: block;
+  width: 100%;
+  padding-right: 0;
+}
 
-footer {
-  text-align: center;
-  padding: 30px 20px;
-  background: #173d35;
-  color: #ffffff;
+#frog-recording-clock .vega-bindings {
+  margin-top: 12px;
+}
+
+#frog-recording-clock .vega-bind {
+  font-size: 12px;
+}
+
+.recording-clock-guide {
+  padding: 20px 22px;
+  background: var(--guide-green);
+  border: 1px solid var(--border-green);
+  border-radius: 13px;
+  color: var(--text-muted);
   font-size: 13px;
+  line-height: 1.7;
+}
+
+.recording-clock-guide h3 {
+  margin: 0 0 12px;
+  color: var(--forest);
+  font-size: 17px;
+}
+
+.recording-clock-guide p {
+  margin: 0 0 12px;
+}
+
+.recording-clock-guide p:last-child {
+  margin-bottom: 0;
+}
+
+/* 16. VISUALISATION 12: RIDGELINE */
+#frog-hourly-ridgeline {
+  margin: 22px 0;
+}
+
+#frog-hourly-ridgeline .vega-embed {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0;
+}
+
+#frog-hourly-ridgeline .vega-bindings {
+  margin-top: 13px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* 17. FOOTER */
+footer {
+  padding: 34px 20px;
+  background: var(--forest-deep);
+  color: #E4F1E6;
+  text-align: left;
+  /* Use same content anchor as the hero and chart headings. */
+  padding-left: max(62px, calc(50vw - 488px));
+  padding-right: max(24px, calc(50vw - 526px));
+  font-size: 12px;
   line-height: 1.7;
 }
 
@@ -337,42 +537,63 @@ footer p {
   margin: 5px 0;
 }
 
+footer a {
+  color: #BAE0CD;
+}
 
-
-@media (max-width: 800px) {
+/* 18. TABLETS / SMALL LAPTOPS */
+@media (max-width: 850px) {
   main {
-    padding: 24px 16px;
+    padding: 25px 18px 42px;
   }
 
-  .chart-card,
-  .seasonal-story {
-    padding: 24px;
+  .hero {
+    padding-left: 56px;
+    padding-right: 18px;
   }
 
+  footer {
+    padding-left: 56px;
+    padding-right: 18px;
+  }
 
   .species-comparison {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 22px;
   }
 
   .species-panel {
-    padding: 22px;
+    padding: 24px 20px;
+  }
+
+  .recording-clock-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #frog-recording-clock {
+    max-width: 440px;
+    margin: 0;
   }
 }
 
-
-
+/* 19. PHONES */
 @media (max-width: 700px) {
   body {
     font-size: 14px;
   }
 
   .hero {
-    padding: 45px 18px;
+    padding: 49px 27px 53px;
+  }
+
+  footer {
+    padding-left: 27px;
+    padding-right: 12px;
   }
 
   .hero h1 {
-    font-size: clamp(30px, 7vw, 40px);
+    font-size: clamp(30px, 7vw, 39px);
   }
 
   .subtitle {
@@ -380,51 +601,64 @@ footer p {
   }
 
   main {
-    padding: 18px 12px;
+    padding: 18px 12px 30px;
   }
 
   .intro,
   .story {
-    margin: 30px auto;
+    margin: 24px 0;
+    padding: 19px 15px;
   }
 
-  .chart-card,
+  .intro h2 {
+    font-size: 23px;
+  }
+
+  .story h2 {
+    font-size: 19px;
+  }
+
+  .chart-card {
+    margin: 22px 0;
+    padding: 21px 15px;
+    border-radius: 14px;
+  }
+
   .seasonal-story {
-    padding: 18px 14px;
-    margin: 22px auto;
-    border-radius: 12px;
+    padding: 21px 15px;
   }
 
   .species-section {
-    margin: 22px auto;
-    padding: 0;
+    margin: 25px 0;
   }
 
   .species-panel {
-    padding: 18px 14px;
+    padding: 20px 15px;
   }
 
   .chart-card > h2,
   .species-section > h2,
-  .seasonal-story > h2,
-  .intro h2,
-  .story h2 {
-    font-size: 19px;
+  .seasonal-story > h2 {
+    font-size: 21px;
   }
 
   .chart-card h3,
   .species-panel h3,
   .seasonal-panel h3 {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .chart-description {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .seasonal-transition {
-    margin: 26px 0 22px;
-    padding-left: 12px;
+    margin: 25px 0;
+    padding: 13px 14px;
+  }
+
+  .recording-clock-guide {
+    padding: 16px;
   }
 
   #frog-richness-map {
@@ -444,96 +678,177 @@ footer p {
   }
 }
 
-/* Share heading, description and chart rows so both plots start together. */
-@media (min-width: 801px) {
-  .species-panel {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-  }
-
-  .species-comparison {
-    row-gap: 0;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
-
-
-#frog-hourly-ridgeline {
-  width: 100%;
-  min-width: 0;
-  margin: 24px 0;
-}
-#frog-hourly-ridgeline .vega-embed {
-  max-width: 100%;
-  width: 100%;
-}
-#frog-hourly-ridgeline svg {
-  max-width: 100%;
-  height: auto;
-}
-#frog-hourly-ridgeline .vega-bindings {
-  margin-top: 14px;
-  font-size: 13px;
-  color: #31554C;
-}
-#frog-hourly-ridgeline select {
-  font: inherit;
-  padding: 7px 10px;
-  border: 1px solid #B7CCC5;
-  border-radius: 6px;
-  background: #fff;
-  color: #173D35;
-  max-width: 100%;
+/* 20. FINAL TYPE HIERARCHY / READING COMFORT
+   Level 1: hero h1 (54px)
+   Level 2: chart section h2 (26px)
+   Level 3: subsection h3 (18px)
+   Level 4: descriptions (15px) and notes/sources (12-12.5px)
+   Note: Vega-Lite SVG title sizes are defined in charts/*.json, not here.
+*/
+.chart-card > h2,
+.species-section > h2,
+.seasonal-story > h2 {
+  max-width: 36ch;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
 }
 
-
-#frog-recording-clock .vega-embed {
-  display: block;
-  width: 100%;
-  padding-right: 0;
+.intro h2,
+.story h2,
+.species-panel h3,
+.seasonal-panel h3 {
+  text-wrap: balance;
 }
 
-#frog-recording-clock .vega-bindings {
-  margin-top: 12px;
+/* Consistent breathing room between a subsection heading, its description and chart */
+.species-panel > h3 + p,
+.seasonal-panel > h3 + p {
+  margin-top: 0;
 }
 
-.recording-clock-layout {
+/* Notes are secondary, never the main focus; source remains readable */
+.chart-note strong,
+.reading-guide strong,
+.recording-clock-guide strong {
+  color: var(--forest);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .chart-card > h2,
+  .species-section > h2,
+  .seasonal-story > h2 {
+    font-size: 22px;
+    max-width: 100%;
+  }
+  .intro h2 { font-size: 24px; }
+  .story h2 { font-size: 21px; }
+  .chart-card h3,
+  .species-panel h3,
+  .seasonal-panel h3 { font-size: 17px; }
+  .chart-note { font-size: 12px; }
+}
+
+/* 21. ONE LEFT-ALIGNED TEXT COLUMN ACROSS THE WEBSITE
+   The container width can change, but every major title shares an anchor. */
+.hero .eyebrow,
+.hero h1,
+.hero .subtitle,
+.intro, .story,
+.chart-card,
+.species-section,
+.seasonal-panel,
+.seasonal-transition,
+.recording-clock-guide,
+.reading-guide,
+footer {
+  text-align: left;
+}
+
+/* Match the species chapter's text to the padded card headings.
+   Keep the two chart panels full-width for readability. */
+.species-section > h2,
+.species-section > .chart-description {
+  margin-left: 38px;
+  margin-right: 38px;
+}
+.species-section > .chart-note,
+.species-section > .source {
+  margin-left: 38px;
+  margin-right: 38px;
+}
+
+/* Explicit left anchors for any future chart or guide elements. */
+.chart-card .vega-embed,
+.species-panel .vega-embed,
+.seasonal-panel .vega-embed {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+@media (max-width: 700px) {
+  .species-section > h2,
+  .species-section > .chart-description,
+  .species-section > .chart-note,
+  .species-section > .source {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+/* ADD TO THE BOTTOM OF style.css - FROG PHOTO LAYOUT */
+
+.hero-inner {
+  max-width: 1080px;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 44px;
+  align-items: center;
+  text-align: left;
+}
+.hero-inner .hero-copy { min-width: 0; }
+.hero-inner .subtitle { margin: 0; max-width: 550px; }
+.hero-visual { margin: 0; min-width: 0; }
+.hero-visual img {
+  width: 100%;
+  height: 275px;
+  display: block;
+  object-fit: cover;
+  object-position: 48% 46%;
+  border-radius: 26px 75px 26px 75px;
+  border: 3px solid rgba(218, 244, 217, 0.45);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, .18);
+}
+.hero-visual figcaption {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #d7e9d9;
+  margin-top: 9px;
+  text-align: left;
+}
+
+.frog-intro-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 250px);
   gap: 24px;
   align-items: center;
+  margin: 6px 0 26px;
 }
-
-.recording-clock-guide {
-  padding: 16px 20px;
-  background: #f0f6f2;
-  border-radius: 10px;
-  color: #526e65;
-  font-size: 13px;
+.frog-intro-row > .chart-description {
+  margin: 0;
+  max-width: 660px;
 }
-
-.recording-clock-guide h3 {
-  margin: 0 0 12px;
-  color: #173d35;
-}
-
-.recording-clock-guide p { margin: 0 0 12px; }
-.recording-clock-guide p:last-child { margin-bottom: 0; }
-
-#frog-recording-clock .vega-bind { font-size: 12px; }
-#frog-recording-clock select { max-width: 100%; margin: 4px 0; }
-
-@media (max-width: 800px) {
-  .recording-clock-layout { grid-template-columns: minmax(0, 1fr); gap: 16px; }
-  #frog-recording-clock { max-width: 440px; margin: 0 auto; }
-}
-
-#frog-hourly-ridgeline .vega-embed {
+.frog-feature { margin: 0; min-width: 0; }
+.frog-feature img {
   display: block;
   width: 100%;
-  padding-right: 0;
+  height: 155px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid #c9dccd;
+}
+.frog-feature figcaption {
+  font-size: 11px;
+  line-height: 1.55;
+  color: #60776b;
+  margin-top: 7px;
+  text-align: left;
 }
 
-#frog-hourly-ridgeline .vega-bindings { margin-top: 12px; }
-#frog-hourly-ridgeline select { max-width: 100%; }
+@media (max-width: 760px) {
+  .hero-inner,
+  .frog-intro-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .hero-visual { width: min(100%, 430px); }
+  .hero-visual img { height: 210px; }
+  .frog-feature { width: min(100%, 360px); }
+  .frog-feature img { height: 150px; }
+}

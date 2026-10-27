@@ -1,88 +1,90 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Recorded frog species richness across Australian states and territories.",
+  "description": "Australian Frog Atlas species-richness polygons spatially aggregated to state land areas using EPSG:3577. Each state is shaded by the mapped-area-weighted mean richness, not the total distinct species in the state. Atlas coverage is shown in the tooltip.",
   "title": {
-    "text": "Recorded Frog Species Richness Across Australia",
-    "subtitle": "Number of distinct frog species recorded per state/territory, 2017–2024",
-    "fontSize": 15,
+    "text": "Average Mapped Frog Species Richness",
+    "subtitle": "Australian Frog Atlas • area-weighted average richness across mapped land",
+    "fontSize": 14,
     "subtitleFontSize": 11,
-    "fontWeight": "bold",
     "anchor": "start",
+    "fontWeight": "bold",
     "color": "#173D3B",
     "offset": 12
   },
   "width": "container",
-  "height": 580,
-  "data": {
-    "url": "data/states.geojson",
-    "format": {
-      "type": "json",
-      "property": "features"
-    }
-  },
+  "height": 490,
   "projection": {
     "type": "mercator",
     "center": [
       134,
       -27
     ],
-    "scale": 720
+    "scale": 620
   },
-  "transform": [
-    {
-      "lookup": "properties.STATE_NAME",
-      "from": {
-        "data": {
-          "url": "data/species_by_state.csv"
-        },
-        "key": "state",
-        "fields": [
-          "species_count"
-        ]
-      }
-    },
-    {
-      "lookup": "properties.STATE_NAME",
-      "from": {
-        "data": {
-          "url": "data/state_land_areas.csv"
-        },
-        "key": "state",
-        "fields": [
-          "area_km2"
-        ]
-      }
-    }
-  ],
   "layer": [
     {
+      "data": {
+        "url": "data/states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/frog_atlas_mean_richness_by_state.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "state": "string",
+                  "mean_mapped_richness": "number",
+                  "atlas_coverage_pct": "number",
+                  "mapped_area_km2": "number"
+                }
+              }
+            },
+            "key": "state",
+            "fields": [
+              "mean_mapped_richness",
+              "atlas_coverage_pct",
+              "mapped_area_km2"
+            ]
+          }
+        }
+      ],
       "mark": {
         "type": "geoshape",
-        "stroke": "#173D3B",
-        "strokeWidth": 1.2
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.9
       },
       "encoding": {
         "color": {
-          "field": "species_count",
+          "field": "mean_mapped_richness",
           "type": "quantitative",
-          "title": "Distinct species",
+          "title": "Mean mapped species richness",
           "scale": {
+            "type": "linear",
+            "domain": [
+              0,
+              20
+            ],
             "range": [
               "#E8F3DC",
               "#B7D9B0",
               "#73B69B",
               "#32877E",
               "#154C52"
-            ],
-            "zero": false,
-            "unknown": "#E5E7EB"
+            ]
           },
           "legend": {
             "orient": "right",
-            "gradientLength": 220,
-            "gradientThickness": 15,
-            "titleFontSize": 12,
-            "labelFontSize": 11,
+            "gradientLength": 200,
+            "gradientThickness": 14,
+            "titleFontSize": 11,
+            "labelFontSize": 10,
             "format": ".0f"
           }
         },
@@ -93,16 +95,16 @@
             "title": "State / Territory"
           },
           {
-            "field": "species_count",
+            "field": "mean_mapped_richness",
             "type": "quantitative",
-            "title": "Distinct species",
-            "format": ",.0f"
+            "title": "Mean local mapped richness",
+            "format": ".1f"
           },
           {
-            "field": "area_km2",
+            "field": "atlas_coverage_pct",
             "type": "quantitative",
-            "title": "Land area (km²)",
-            "format": ",.0f"
+            "title": "Area covered by Atlas (%)",
+            "format": ".1f"
           }
         ]
       }
@@ -113,50 +115,42 @@
           {
             "state": "WA",
             "lon": 121,
-            "lat": -26,
-            "align": "center"
+            "lat": -26
           },
           {
             "state": "NT",
             "lon": 133,
-            "lat": -20,
-            "align": "center"
+            "lat": -20
           },
           {
             "state": "SA",
             "lon": 135,
-            "lat": -30,
-            "align": "center"
+            "lat": -30
           },
           {
             "state": "QLD",
             "lon": 144,
-            "lat": -22,
-            "align": "center"
+            "lat": -22
           },
           {
             "state": "NSW",
             "lon": 147,
-            "lat": -32,
-            "align": "center"
+            "lat": -32
           },
           {
             "state": "VIC",
             "lon": 144,
-            "lat": -37,
-            "align": "center"
+            "lat": -37
           },
           {
             "state": "TAS",
             "lon": 147,
-            "lat": -42,
-            "align": "center"
+            "lat": -42
           },
           {
             "state": "ACT",
             "lon": 150.3,
-            "lat": -35.6,
-            "align": "left"
+            "lat": -35.6
           }
         ]
       },
@@ -164,10 +158,10 @@
         "type": "text",
         "fontSize": 11,
         "fontWeight": "bold",
-        "color": "#FFFFFF",
-        "opacity": 1,
-        "stroke": "#173D35",
-        "strokeWidth": 0.65
+        "color": "#173D35",
+        "opacity": 0.9,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.3
       },
       "encoding": {
         "longitude": {
@@ -181,11 +175,6 @@
         "text": {
           "field": "state",
           "type": "nominal"
-        },
-        "align": {
-          "field": "align",
-          "type": "nominal",
-          "scale": null
         }
       }
     }
