@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Radial hourly profile of unique FrogID audio recording events, local clock time, 2017–2024. Normalised to the selected state's number of recording events.",
+  "description": "Radial hourly profile of unique FrogID audio recording events, local clock time",
   "width": 420,
   "height": 430,
   "params": [

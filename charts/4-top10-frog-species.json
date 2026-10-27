@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "The ten most frequently recorded frog species in the FrogID 7.0 dataset.",
+  "description": "The ten most frequently recorded frog species.",
   "width": "container",
   "height": 420,
   "data": {

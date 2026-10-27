@@ -123,19 +123,20 @@ main {
 
 .intro,
 .story {
-  max-width: 800px;
+  max-width: 900px;
   margin: 44px 0;
   padding: 24px 38px;
   text-align: left;
   background: var(--story-green);
   border: 1px solid var(--border-green);
+  border-left: 5px solid var(--moss);
   border-radius: 16px;
 }
 
 .intro p,
 .story p {
   max-width: 68ch;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.78;
   margin: 0 0 14px;
 }
@@ -346,6 +347,17 @@ h3 {
   min-width: 0;
 }
 
+.species-panel > .chart-note {
+  margin: auto 0 10px;
+  font-size: 12.5px;
+}
+
+.species-panel > .source {
+  margin: 12px 0 0;
+  color: var(--text-light);
+  font-size: 12px;
+}
+
 #species-state-heatmap .vega-embed,
 #top10-frog-chart .vega-embed {
   max-width: 100%;
@@ -390,10 +402,10 @@ h3 {
   padding: 14px 18px;
   background: var(--guide-green);
   border-left: 3px solid var(--moss);
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
 }
 
-.seasonal-transition h3 {
+.seasonal-transition h2 {
   margin: 0 0 6px;
   color: var(--forest);
   font-size: 16px;
@@ -406,6 +418,30 @@ h3 {
   color: var(--text-muted);
   font-size: 13px;
   line-height: 1.65;
+}
+
+.seasonal-story > .seasonal-panel:first-child {
+  margin-top: 0;
+}
+
+.seasonal-notes {
+  margin: -18px 0 43px;
+  padding: 20px 24px;
+  background: var(--guide-green);
+  border: 1px solid var(--border-green);
+  border-left: 4px solid var(--moss);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.seasonal-notes h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.seasonal-notes p {
+  margin: 0;
 }
 
 #frog-species-streamgraph,
@@ -818,6 +854,15 @@ footer {
   text-align: left;
 }
 
+.chapter-bridge .frog-feature {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.chapter-bridge .frog-feature img {
+  height: auto;
+}
+
 @media (max-width: 760px) {
   .hero-inner,
   .frog-intro-row {
@@ -842,7 +887,7 @@ footer {
 .insight p{font-size:13px;color:var(--text-muted);line-height:1.7;margin:0}
 .species-panel .insight{margin-top:18px}
 .conclusion{background:linear-gradient(145deg,#f7fcf8,#e8f4eb);border:1px solid #b8d6c2;border-top:5px solid var(--moss);padding:42px;border-radius:19px;margin:70px 0 20px;box-shadow:var(--shadow)}
-.conclusion h2{font-size:clamp(26px,3.6vw,36px);margin:0 0 16px}
+.conclusion h2{font-size:clamp(24px,3.6vw,24px);margin:0 0 16px}
 .conclusion-lead{max-width:70ch;font-size:18px;line-height:1.65;color:var(--forest)}
 .conclusion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0}
 .conclusion-grid>div{background:#fff;border:1px solid var(--border-green);border-radius:12px;padding:18px}
@@ -853,3 +898,37 @@ footer {
 .final-line{font-weight:700;color:var(--forest);font-size:17px;margin-top:22px}
 @media(max-width:760px){.conclusion{padding:24px 17px}.conclusion-grid{grid-template-columns:1fr}.story-nav{padding:12px}.chapter-bridge{margin-top:35px}.insight{padding:13px}}
 @media print{.story-nav{display:none}.chart-card,.species-panel,.conclusion{break-inside:avoid}body{background:#fff}}
+
+.references-section {
+  background: #F7FBF7;
+  padding: 32px 38px;
+  margin: 45px auto;
+  border: 1px solid #CFDFD0;
+  border-radius: 16px;
+  text-align: left;
+}
+
+.references-section h2 {
+  color: #173D35;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.references-section h3 {
+  color: #315B50;
+  font-size: 17px;
+  margin: 26px 0 12px;
+}
+
+.references-section p {
+  color: #526E65;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 8px 0;
+}
+
+.references-section a {
+  color: #217F75;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

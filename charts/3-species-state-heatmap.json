@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Top 10 frog species nationally, compared across Australian states using FrogID 7.0.",
+  "description": "Top 10 frog species nationally, compared across states.",
   "width": "container",
   "height": 420,
   "data": {

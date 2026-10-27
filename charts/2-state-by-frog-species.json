@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Recorded frog species relative to the number expected for each state's land area, using a species–area power-law fit.",
+  "description": "frog record relative to the area of the state.",
   "title": {
     "text": "Frog Species Richness Relative to State Size",
-    "subtitle": "Observed ÷ expected distinct species, given each state's land area, 2017–2024",
+    "subtitle": "Observed ÷ expected distinct species based on state area, 2017–2024",
     "fontSize": 17,
     "subtitleFontSize": 12,
     "anchor": "start",

@@ -1,7 +1,7 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "FrogID occurrence record hotspots across Australia using proportional symbols.",
+  "description": "FrogID occurrence record hotspots across Australia.",
   "width": "container",
   "height": 460,
 

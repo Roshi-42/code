@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Top ten FrogID species, latitude of occurrence records. Boxes Q1–Q3, line median, whiskers inlier extrema within 1.5 IQR. Obscured coordinates and observer effort may bias distribution. Outliers not plotted.",
+  "description": "Top ten FrogID species, latitude of occurrence records. Boxes Q1 Q3, line median, whiskers inlier extrema within 1.5 IQR.",
   "title": {
     "text": "How Far North and South Are Common Frogs Recorded?",
-    "subtitle": "Latitude distributions of FrogID occurrence records • 2017–2024 • top 10 recorded species",
+    "subtitle": "Latitude distributions of FrogID occurrence records 2017 to 2024  top 10 recorded species",
     "fontSize": 14,
     "subtitleFontSize": 11,
     "anchor": "start",

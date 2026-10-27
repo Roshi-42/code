@@ -1,9 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Privacy-conscious dot density map: each synthetic dot represents approximately 500 FrogID occurrence records aggregated by 1-degree cell. Dots do not show exact observation locations.",
+  "description": "Privacy-conscious dot density map: each synthetic dot represents approximately 500 FrogID occurrence records aggregated by 1-degree cell.",
   "title": {
     "text": "Where Are FrogID Observations Concentrated?",
-    "subtitle": "One dot \u2248 500 occurrence records \u2022 2017\u20132024 \u2022 dots positioned approximately within 1\u00b0 cells",
+    "subtitle": "One dot \u2248 500 occurrence records \u2022 2017\u20132024 \u2022 dots positioned approximately within 1 dgree cells",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 11,
@@ -75,75 +75,7 @@
         ]
       }
     },
-    {
-      "data": {
-        "values": [
-          {
-            "state": "WA",
-            "lon": 121,
-            "lat": -26
-          },
-          {
-            "state": "NT",
-            "lon": 133,
-            "lat": -20
-          },
-          {
-            "state": "SA",
-            "lon": 135,
-            "lat": -30
-          },
-          {
-            "state": "QLD",
-            "lon": 144,
-            "lat": -22
-          },
-          {
-            "state": "NSW",
-            "lon": 147,
-            "lat": -32
-          },
-          {
-            "state": "VIC",
-            "lon": 144,
-            "lat": -37
-          },
-          {
-            "state": "TAS",
-            "lon": 147,
-            "lat": -42
-          },
-          {
-            "state": "ACT",
-            "lon": 150.3,
-            "lat": -35.6
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#FFFFFF",
-        "opacity": 1,
-        "stroke": "#FFFFFF",
-        "strokeWidth": 3
-      },
-      "encoding": {
-        "longitude": {
-          "field": "lon",
-          "type": "quantitative"
-        },
-        "latitude": {
-          "field": "lat",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "state",
-          "type": "nominal"
-        }
-      }
-    },
+  
     {
       "data": {
         "values": [

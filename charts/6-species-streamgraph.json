@@ -1,7 +1,7 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Seasonal streamgraph of the ten most frequently recorded frog species in FrogID 7.0.",
+  "description": "Seasonal streamgraph of the ten most frequently",
   "width": "container",
   "height": 390,
 
