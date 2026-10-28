@@ -1,9 +1,7 @@
 
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "FrogID occurrence record hotspots across Australia.",
-  "width": "container",
-  "height": 460,
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json","description": "FrogID occurrence record hotspots across Australia.",
+  "width": "container","height": 460,
 
   "projection": {
     "type": "mercator",
@@ -38,12 +36,8 @@
     ]
   }
 }
-
-,
-
-  {
-    "data": {
-      "url": "data/grid_counts.csv"
+,{
+    "data": {"url": "data/grid_counts.csv"
     },
     "mark": {
       "type": "circle"
@@ -232,7 +226,6 @@
       }
     }
   ],
-
   "config": {
     "background": "#FFFFFF",
     "view": {

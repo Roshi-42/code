@@ -23,9 +23,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  background: var(--page-green);
+body {margin: 0;background: var(--page-green);
   color: var(--text-main);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -50,8 +48,7 @@ select:focus-visible {
 
 
 .hero {
-  position: relative;
-  isolation: isolate;
+  position: relative;isolation: isolate;
   overflow: hidden;
   background: linear-gradient(125deg, #10362F 0%, #194C40 60%, #255F4C 100%);
   color: #FFFFFF;
@@ -64,9 +61,7 @@ select:focus-visible {
   position: absolute;
   z-index: -1;
   width: 330px;
-  height: 330px;
-  right: -85px;
-  top: -135px;
+  height: 330px;right: -85px;top: -135px;
   border: 2px solid rgba(194, 230, 194, 0.16);
   border-radius: 50%;
   box-shadow: 0 0 0 40px rgba(194, 230, 194, 0.035),
@@ -170,7 +165,7 @@ h3 {
 .seasonal-story > h2 {
   margin: 0 0 14px;
   color: var(--forest);
-  font-size: 26px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.33;
 }
@@ -328,7 +323,6 @@ h3 {
   border-radius: 16px;
   box-shadow: var(--shadow);
 }
-
 .species-panel h3 {
   font-size: 18px;
   margin: 0 0 11px;
@@ -537,7 +531,6 @@ h3 {
   max-width: 100%;
   padding-right: 0;
 }
-
 #frog-hourly-ridgeline .vega-bindings {
   margin-top: 13px;
   color: var(--text-muted);
@@ -598,7 +591,6 @@ footer a {
     margin: 0;
   }
 }
-
 @media (max-width: 700px) {
   body {
     font-size: 14px;
@@ -657,8 +649,7 @@ footer a {
     padding: 20px 15px;
   }
 
-  .chart-card > h2,
-  .species-section > h2,
+  .chart-card > h2,.species-section > h2,
   .seasonal-story > h2 {
     font-size: 21px;
   }
@@ -726,8 +717,6 @@ footer a {
 .seasonal-panel > h3 + p {
   margin-top: 0;
 }
-
-
 .chart-note strong,
 .reading-guide strong,
 .recording-clock-guide strong {
@@ -765,7 +754,6 @@ footer {
   text-align: left;
 }
 
-
 .species-section > h2,
 .species-section > .chart-description {
   margin-left: 38px;
@@ -794,15 +782,10 @@ footer {
     margin-right: 15px;
   }
 }
-
-
 .hero-inner {
-  max-width: 1080px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 44px;
-  align-items: center;
+  max-width: 1080px; margin: 0 auto;
+  display: grid;grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 44px;align-items: center;
   text-align: left;
 }
 .hero-inner .hero-copy { min-width: 0; }
@@ -875,29 +858,192 @@ footer {
   .frog-feature img { height: 150px; }
 }
 
-.story-nav {display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:18px 0 38px;padding:16px 20px;background:#f7fbf7;border:1px solid var(--border-green);border-radius:12px}
-.story-nav span {font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--forest);margin-right:12px}
-.story-nav a {font-size:13px;text-decoration:none;border:1px solid #c5d9cb;border-radius:999px;padding:5px 12px;background:white}
-.story-nav a:hover,.story-nav a:focus-visible{background:#e4f0e7}
-.chapter-bridge{max-width:900px;margin:58px 0 28px;border-left:5px solid var(--moss);background:linear-gradient(115deg,#edf5ee,#f8fbf8)}
-.chapter-label{font-size:11px!important;text-transform:uppercase;font-weight:700;letter-spacing:.16em;color:#28786b;margin:0 0 8px!important}
-.insight{margin:18px 0 20px;padding:16px 18px;background:#edf7f1;border:1px solid #c7dfd0;border-radius:12px;max-width:850px}
-.insight-kicker{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#28786b;margin-bottom:3px}
-.insight h4{font-size:15px;line-height:1.35;color:var(--forest);margin:0 0 5px}
-.insight p{font-size:13px;color:var(--text-muted);line-height:1.7;margin:0}
-.species-panel .insight{margin-top:18px}
-.conclusion{background:linear-gradient(145deg,#f7fcf8,#e8f4eb);border:1px solid #b8d6c2;border-top:5px solid var(--moss);padding:42px;border-radius:19px;margin:70px 0 20px;box-shadow:var(--shadow)}
-.conclusion h2{font-size:clamp(24px,3.6vw,24px);margin:0 0 16px}
-.conclusion-lead{max-width:70ch;font-size:18px;line-height:1.65;color:var(--forest)}
-.conclusion-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0}
-.conclusion-grid>div{background:#fff;border:1px solid var(--border-green);border-radius:12px;padding:18px}
-.conclusion h3{font-size:17px;margin:0 0 9px}
-.conclusion p{line-height:1.72}
-.conclusion-grid p{font-size:13px;margin:0}
-.conclusion-caution{padding:18px 20px;border-left:4px solid #619b82;background:#e0efe5;border-radius:0 10px 10px 0;margin:22px 0 30px;line-height:1.7}
-.final-line{font-weight:700;color:var(--forest);font-size:17px;margin-top:22px}
-@media(max-width:760px){.conclusion{padding:24px 17px}.conclusion-grid{grid-template-columns:1fr}.story-nav{padding:12px}.chapter-bridge{margin-top:35px}.insight{padding:13px}}
-@media print{.story-nav{display:none}.chart-card,.species-panel,.conclusion{break-inside:avoid}body{background:#fff}}
+
+.story-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 18px 0 38px;
+  padding: 16px 20px;
+  background: #f7fbf7;
+  border: 1px solid var(--border-green);
+  border-radius: 12px;
+}
+
+.story-nav span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-right: 12px;
+}
+
+.story-nav a {
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid #c5d9cb;
+  border-radius: 999px;
+  padding: 5px 12px;
+  background: white;
+}
+
+.story-nav a:hover,
+.story-nav a:focus-visible {
+  background: #e4f0e7;
+}
+
+.chapter-bridge {
+  max-width: 900px;
+  margin: 58px 0 28px;
+  border-left: 5px solid var(--moss);
+  background: linear-gradient(115deg, #edf5ee, #f8fbf8);
+}
+
+.chapter-label {
+  font-size: 11px !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: .16em;
+  color: #28786b;
+  margin: 0 0 8px !important;
+}
+
+.insight {
+  margin: 18px 0 20px;
+  padding: 16px 18px;
+  background: #edf7f1;
+  border: 1px solid #c7dfd0;
+  border-radius: 12px;
+  max-width: 850px;
+}
+
+.insight-kicker {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #28786b;
+  margin-bottom: 3px;
+}
+
+.insight h4 {
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--forest);
+  margin: 0 0 5px;
+}
+.insight p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.species-panel .insight {
+  margin-top: 18px;
+}
+
+.conclusion {
+  background: linear-gradient(145deg, #f7fcf8, #e8f4eb);
+  border: 1px solid #b8d6c2;
+  border-top: 5px solid var(--moss);
+  padding: 42px;
+  border-radius: 19px;
+  margin: 70px 0 20px;
+  box-shadow: var(--shadow);
+}
+
+.conclusion h2 {
+  font-size: clamp(24px, 3.6vw, 24px);
+  margin: 0 0 16px;
+}
+
+.conclusion-lead {
+  max-width: 70ch;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--forest);
+}
+
+.conclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 28px 0;
+}
+
+.conclusion-grid > div {
+  background: #fff;
+  border: 1px solid var(--border-green);
+  border-radius: 12px;
+  padding: 18px;
+}
+.conclusion h3 {
+  font-size: 17px;
+  margin: 0 0 9px;
+}
+.conclusion p {
+  line-height: 1.72;
+}
+.conclusion-grid p {
+  font-size: 13px;
+  margin: 0;
+}
+.conclusion-caution {
+  padding: 18px 20px;
+  border-left: 4px solid #619b82;
+  background: #e0efe5;
+  border-radius: 0 10px 10px 0;
+  margin: 22px 0 30px;
+  line-height: 1.7;
+}
+
+.final-line {
+  font-weight: 700;
+  color: var(--forest);
+  font-size: 17px;
+  margin-top: 22px;
+}
+
+@media (max-width: 760px) {
+  .conclusion {
+    padding: 24px 17px;
+  }
+
+  .conclusion-grid {
+    grid-template-columns: 1fr;
+  }
+.story-nav {
+    padding: 12px;
+  }
+  .chapter-bridge {
+    margin-top: 35px;
+  }
+  .insight {
+    padding: 13px;
+  }
+}
+
+@media print {
+  .story-nav {
+    display: none;
+  }
+  .chart-card,
+  .species-panel,
+  .conclusion {
+    break-inside: avoid;
+  }
+
+  body {
+    background: #fff;
+  }
+}
+
+
+
 
 .references-section {
   background: #F7FBF7;

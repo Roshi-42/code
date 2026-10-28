@@ -1,9 +1,7 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "The ten most frequently recorded frog species.",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json","description": "The ten most frequently recorded frog species.",
   "width": "container",
-  "height": 420,
-  "data": {
+  "height": 420,"data": {
     "url": "data/top10_species_national.csv"
   },
   "mark": {
@@ -35,21 +33,18 @@
         "tickCount": 5,
         "minExtent": 180,
         "maxExtent": 180
-      },
-      "scale": {
-        "zero": true
-      }
+      }, "scale": {
+        "zero": true }
     },
-    "tooltip": [
+    
+    "tooltip": 
+    [
       {
-        "field": "common_name",
-        "type": "nominal",
+        "field": "common_name","type": "nominal",
         "title": "Frog species"
       },
       {
-        "field": "records",
-        "type": "quantitative",
-        "title": "Occurrence records",
+        "field": "records","type": "quantitative","title": "Occurrence records",
         "format": ","
       }
     ]

@@ -1,12 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top 10 frog species nationally, compared across states.",
-  "width": "container",
-  "height": 420,
-  "data": {
-    "url": "data/top10_species_by_state.csv"
-  },
-  "mark": {
+  "width": "container","height": 420,
+  "data": {"url": "data/top10_species_by_state.csv"
+  },"mark": {
     "type": "rect",
     "stroke": "#FFFFFF",
     "strokeWidth": 1.5,
@@ -17,12 +14,9 @@
       "field": "state",
       "type": "nominal",
       "title": "Australian state or territory",
-      "sort": [
-        "Western Australia",
-        "Northern Territory",
+      "sort": ["Western Australia","Northern Territory",
         "South Australia",
-        "Queensland",
-        "New South Wales",
+        "Queensland","New South Wales",
         "Victoria",
         "Australian Capital Territory",
         "Tasmania"
@@ -42,17 +36,14 @@
       "field": "common_name",
       "type": "nominal",
       "title": null,
-      "sort": [
-        "Common Eastern Froglet",
+      "sort": ["Common Eastern Froglet",
         "Striped Marsh Frog",
-        "Peron’s Tree Frog",
+        "Perons Tree Frog",
         "Eastern Dwarf Tree Frog",
         "Spotted Marsh Frog",
         "Plains Froglet",
         "Eastern Banjo Frog",
-        "Green Tree Frog",
-        "Southern Brown Tree Frog",
-        "Whistling Tree Frog"
+        "Green Tree Frog","Southern Brown Tree Frog","Whistling Tree Frog"
       ],
       "axis": {
         "labelFontSize": 11,

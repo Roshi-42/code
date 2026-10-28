@@ -1,12 +1,9 @@
 
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Seasonal shares of FrogID occurrence records across Australian states.",
-  "width": "container",
-  "height": 420,
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json","description": "Seasonal shares of FrogID occurrence records across Australian states.",
+  "width": "container","height": 420,
 
-  "data": {
-    "url": "data/frog_state_seasons.csv"
+  "data": {"url": "data/frog_state_seasons.csv"
   },
 
   "params": [
@@ -16,14 +13,9 @@
       "bind": {
         "input": "select",
         "name": "Select year: ",
-        "options": [
-          "All years",
-          "2017",
-          "2018",
-          "2019",
-          "2020",
-          "2021",
-          "2022",
+        "options": ["All years",
+          "2017","2018","2019","2020",
+          "2021","2022",
           "2023",
           "2024"
         ]
@@ -48,12 +40,9 @@
       "field": "state",
       "type": "nominal",
       "title": null,
-      "sort": [
-        "Western Australia",
-        "Northern Territory",
+      "sort": ["Western Australia","Northern Territory",
         "South Australia",
-        "Queensland",
-        "New South Wales",
+        "Queensland","New South Wales",
         "Australian Capital Territory",
         "Victoria",
         "Tasmania"
@@ -85,9 +74,7 @@
       "type": "nominal",
       "title": "Australian season",
       "scale": {
-        "domain": [
-          "Summer",
-          "Autumn",
+        "domain": ["Summer","Autumn",
           "Winter",
           "Spring"
         ],

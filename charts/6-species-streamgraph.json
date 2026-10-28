@@ -47,21 +47,18 @@
         "domain": [1, 12]
       },
       "axis": {
-        "values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         "labelExpr": "['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][datum.value - 1]",
         "labelAngle": 0,
         "grid": false
       }
     },
-
     "y": {
-      "field": "records",
+ "field": "records",
       "type": "quantitative",
       "stack": "center",
-      "title": null,
-      "axis": null
+      "title": null,"axis": null
     },
-
     "color": {
       "field": "species",
       "type": "nominal",
@@ -74,25 +71,16 @@
         "columns": 2,
         "labelLimit": 200
       }
-    },
-
-    "order": {
-      "field": "species",
-      "type": "nominal",
-      "sort": "ascending"
+    },"order": {"field": "species",
+      "type": "nominal","sort": "ascending"
     },
 
     "opacity": {
       "condition": {
-        "test": "selectedSpecies == 'All species' || datum.species == selectedSpecies",
-        "value": 0.96
+        "test": "selectedSpecies == 'All species' || datum.species == selectedSpecies","value": 0.96
       },
       "value": 0.12
-    },
-
-    "tooltip": [
-      {
-        "field": "species",
+    },"tooltip": [{"field": "species",
         "type": "nominal",
         "title": "Species"
       },
@@ -112,9 +100,8 @@
         "field": "month_share_pct",
         "type": "quantitative",
         "title": "Share of top-10 records that month (%)",
-        "format": ".1f"
-      }
-    ]
+        "format": ".1f"}
+]
   },
 
   "config": {

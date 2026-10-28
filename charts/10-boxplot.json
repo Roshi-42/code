@@ -1,6 +1,5 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Top ten FrogID species, latitude of occurrence records. Boxes Q1 Q3, line median, whiskers inlier extrema within 1.5 IQR.",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json","description": "Top ten FrogID species, latitude of occurrence records. Boxes Q1 Q3, line median, whiskers inlier extrema within 1.5 IQR.",
   "title": {
     "text": "How Far North and South Are Common Frogs Recorded?",
     "subtitle": "Latitude distributions of FrogID occurrence records 2017 to 2024  top 10 recorded species",
@@ -8,8 +7,7 @@
     "subtitleFontSize": 11,
     "anchor": "start",
     "color": "#173D3B"
-  },
-  "data": {
+  },"data": {
     "url": "data/frog_species_latitude_boxplot.csv"
   },
   "width": "container",
@@ -17,9 +15,7 @@
     "step": 38
   },
   "encoding": {
-    "y": {
-      "field": "common_name",
-      "type": "nominal",
+    "y": {"field": "common_name","type": "nominal",
       "sort": {
         "field": "median_lat",
         "order": "ascending"
@@ -31,13 +27,12 @@
       }
     },
     "tooltip": [
-      {
-        "field": "common_name",
+      {"field": "common_name",
         "type": "nominal",
         "title": "Frog species"
       },
       {
-        "field": "records",
+      "field": "records",
         "type": "quantitative",
         "format": ",",
         "title": "Occurrence records"
@@ -45,35 +40,34 @@
       {
         "field": "whisker_south_lat",
         "type": "quantitative",
-        "format": ".1f",
+    "format": ".1f",
         "title": "South whisker (°)"
       },
       {
         "field": "q1_lat",
-        "type": "quantitative",
-        "format": ".1f",
+        "type": "quantitative",        "format": ".1f",
         "title": "25th percentile (°)"
       },
       {
-        "field": "median_lat",
-        "type": "quantitative",
+      "field": "median_lat",
+      "type": "quantitative",
         "format": ".1f",
         "title": "Median latitude (°)"
       },
       {
-        "field": "q3_lat",
+      "field": "q3_lat",
         "type": "quantitative",
         "format": ".1f",
-        "title": "75th percentile (°)"
+       "title": "75th percentile (°)"
       },
       {
         "field": "whisker_north_lat",
         "type": "quantitative",
-        "format": ".1f",
+      "format": ".1f",
         "title": "North whisker (°)"
       },
       {
-        "field": "outlier_records",
+ "field": "outlier_records",
         "type": "quantitative",
         "format": ",",
         "title": "Outside whiskers (not plotted)"
@@ -99,11 +93,7 @@
           },
           "axis": {
             "title": "Latitude (°S) — south to north",
-            "values": [
-              -45,
-              -40,
-              -35,
-              -30,
+            "values": [-45,-40,-35,-30,
               -25,
               -20,
               -15,
@@ -136,7 +126,10 @@
           "field": "q3_lat"
         }
       }
+
     },
+
+
     {
       "mark": {
         "type": "tick",
@@ -152,6 +145,12 @@
         }
       }
     },
+
+
+
+
+
+
     {
       "mark": {
         "type": "tick",
@@ -180,6 +179,9 @@
           "field": "whisker_north_lat",
           "type": "quantitative"
         }
+
+
+      
       }
     }
   ],

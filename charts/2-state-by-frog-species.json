@@ -1,13 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "frog record relative to the area of the state.",
-  "title": {
-    "text": "Frog Species Richness Relative to State Size",
-    "subtitle": "Observed ÷ expected distinct species based on state area, 2017–2024",
-    "fontSize": 17,
+  "title": {"text": "Frog Species Richness Relative to State Size",
+    "subtitle": "Observed ÷ expected distinct species based on state area, 2017 to 2024","fontSize": 17,
     "subtitleFontSize": 12,
-    "anchor": "start",
-    "color": "#173D3B"
+    "anchor": "start", "color": "#173D3B"
   },
   "width": "container",
   "height": 500,
@@ -53,17 +50,11 @@
             ]
           }
         },
-        {
-          "calculate": "isValid(datum.species_count) && isValid(datum.area_km2) && datum.species_count > 0 && datum.area_km2 > 0",
-          "as": "has_data"
+        {"calculate": "isValid(datum.species_count) && isValid(datum.area_km2) && datum.species_count > 0 && datum.area_km2 > 0","as": "has_data"
         },
-        {
-          "calculate": "datum.has_data ? log(datum.area_km2) : null",
-          "as": "log_area"
+        {"calculate": "datum.has_data ? log(datum.area_km2) : null","as": "log_area"
         },
-        {
-          "calculate": "datum.has_data ? log(datum.species_count) : null",
-          "as": "log_species"
+        {"calculate": "datum.has_data ? log(datum.species_count) : null","as": "log_species"
         },
         {
           "joinaggregate": [
@@ -83,9 +74,7 @@
           "calculate": "datum.has_data ? (datum.log_area - datum.mean_log_area) * (datum.log_species - datum.mean_log_species) : null",
           "as": "cross_dev"
         },
-        {
-          "calculate": "datum.has_data ? pow(datum.log_area - datum.mean_log_area, 2) : null",
-          "as": "sq_dev"
+        {"calculate": "datum.has_data ? pow(datum.log_area - datum.mean_log_area, 2) : null","as": "sq_dev"
         },
         {
           "joinaggregate": [
@@ -101,16 +90,13 @@
             }
           ]
         },
-        {
-          "calculate": "datum.sum_cross_dev / datum.sum_sq_dev",
-          "as": "z_value"
+        {"calculate": "datum.sum_cross_dev / datum.sum_sq_dev","as": "z_value"
         },
-        {
-          "calculate": "datum.has_data ? exp(datum.mean_log_species + datum.z_value * (datum.log_area - datum.mean_log_area)) : null",
+        {"calculate": "datum.has_data ? exp(datum.mean_log_species + datum.z_value * (datum.log_area - datum.mean_log_area)) : null",
           "as": "expected_species"
         },
         {
-          "calculate": "datum.has_data ? datum.species_count / datum.expected_species : null",
+"calculate": "datum.has_data ? datum.species_count / datum.expected_species : null",
           "as": "richness_ratio"
         }
       ],
@@ -200,53 +186,32 @@
     {
       "data": {
         "values": [
-          {
-            "state": "WA",
-            "lon": 121,
-            "lat": -26,
-            "align": "center"
+          {"state": "WA","lon": 121,
+            "lat": -26
           },
-          {
-            "state": "NT",
-            "lon": 133,
-            "lat": -20,
-            "align": "center"
+          {"state": "NT","lon": 133,
+            "lat": -20
           },
-          {
-            "state": "SA",
+          {"state": "SA",
             "lon": 135,
-            "lat": -30,
-            "align": "center"
+            "lat": -30
           },
-          {
-            "state": "QLD",
+          {"state": "QLD",
             "lon": 144,
-            "lat": -22,
-            "align": "center"
+            "lat": -22
           },
-          {
-            "state": "NSW",
+          {"state": "NSW", "lon": 147,
+            "lat": -32
+          },
+          {"state": "VIC", "lon": 144,"lat": -37
+          },
+          {"state": "TAS",
             "lon": 147,
-            "lat": -32,
-            "align": "center"
+            "lat": -42
           },
-          {
-            "state": "VIC",
-            "lon": 144,
-            "lat": -37,
-            "align": "center"
-          },
-          {
-            "state": "TAS",
-            "lon": 147,
-            "lat": -42,
-            "align": "center"
-          },
-          {
-            "state": "ACT",
+          { "state": "ACT",
             "lon": 150.3,
-            "lat": -35.6,
-            "align": "left"
+            "lat": -35.6
           }
         ]
       },

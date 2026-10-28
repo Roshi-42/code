@@ -1,9 +1,6 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Privacy-conscious dot density map: each synthetic dot represents approximately 500 FrogID occurrence records aggregated by 1-degree cell.",
-  "title": {
-    "text": "Where Are FrogID Observations Concentrated?",
-    "subtitle": "One dot \u2248 500 occurrence records \u2022 2017\u20132024 \u2022 dots positioned approximately within 1 dgree cells",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json","description": "Privacy-conscious dot density map: each synthetic dot represents approximately 500 FrogID occurrence records aggregated by 1-degree cell.",
+  "title": {"text": "Where Are FrogID Observations Concentrated?","subtitle": "One dot \u2248 500 occurrence records \u2022 2017\u20132024 \u2022 dots positioned approximately within 1 dgree cells",
     "anchor": "start",
     "fontSize": 15,
     "subtitleFontSize": 11,
@@ -21,17 +18,13 @@
   },
   "layer": [
     {
-      "data": {
-        "url": "data/states.geojson",
-        "format": {
-          "type": "json",
-          "property": "features"
+      "data": {"url": "data/states.geojson","format": {"type": "json",
+      "property": "features"
+        
         }
       },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#EEF2E9",
-        "stroke": "#A9BEB5",
+      "mark": {"type": "geoshape",
+        "fill": "#EEF2E9","stroke": "#A9BEB5",
         "strokeWidth": 0.7
       }
     },
@@ -75,6 +68,10 @@
         ]
       }
     },
+
+
+
+
   
     {
       "data": {
@@ -120,8 +117,7 @@
             "lat": -35.6
           }
         ]
-      },
-      "mark": {
+      },"mark": {
         "type": "text",
         "fontSize": 11,
         "fontWeight": "bold",
@@ -129,8 +125,7 @@
         "opacity": 0.9,
         "stroke": "#FFFFFF",
         "strokeWidth": 0
-      },
-      "encoding": {
+      },"encoding": {
         "longitude": {
           "field": "lon",
           "type": "quantitative"
@@ -145,8 +140,7 @@
         }
       }
     }
-  ],
-  "config": {
+  ],"config": {
     "background": "#FFFFFF",
     "view": {
       "stroke": null

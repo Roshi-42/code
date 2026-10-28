@@ -44,10 +44,7 @@
       "bind": {
         "input": "select",
         "name": "Highlight species: ",
-        "options": [
-          "All species",
-          "Crinia signifera",
-          "Limnodynastes peronii",
+        "options": ["All species","Crinia signifera","Limnodynastes peronii",
           "Pengilleyia peronii",
           "Drymomantis fallax",
           "Limnodynastes tasmaniensis",
@@ -57,8 +54,7 @@
           "Rawlinsonia ewingii",
           "Rawlinsonia verreauxii"
         ],
-        "labels": [
-          "All species",
+        "labels": ["All species",
           "Common Eastern Froglet",
           "Striped Marsh Frog",
           "Peron’s Tree Frog",
@@ -102,10 +98,14 @@
             ]
           }
         }
+
       }
+
+
+
     },
-    {
-      "mark": {
+
+    {"mark": {
         "type": "area",
         "interpolate": "monotone",
         "fill": "#64B3A0",

@@ -10,15 +10,12 @@
       "bind": {
         "input": "select",
         "name": "Select state or territory: ",
-        "options": [
-          "All Australia",
-          "New South Wales",
-          "Victoria",
+        "options": ["All Australia","New South Wales","Victoria",
           "Queensland",
           "Western Australia",
           "South Australia",
-          "Tasmania",
-          "Northern Territory",
+        "Tasmania",
+           "Northern Territory",
           "Australian Capital Territory",
           "Other Territories"
         ]
@@ -29,8 +26,7 @@
     {
       "data": {
         "url": "data/frog_recording_hours_by_state.csv",
-        "format": {
-          "type": "csv",
+        "format": {"type": "csv",
           "parse": {
             "state": "string",
             "hour": "number",
@@ -48,8 +44,7 @@
           "filter": "datum.state === selectedState"
         }
       ],
-      "mark": {
-        "type": "arc",
+      "mark": {"type": "arc",
         "radius2": 32,
         "padAngle": 0.025,
         "cornerRadius": 2,
@@ -66,13 +61,14 @@
               0,
               24
             ],
-            "range": [
-              0,
+            "range": [0,
               6.283185307179586
             ]
           }
         },
-        "theta2": {
+        "theta2": 
+        
+        {
           "field": "hour_end"
         },
         "radius": {
@@ -138,16 +134,17 @@
         ]
       }
     },
+
+
     {
       "data": {
         "values": [
           {
-            "hour": 0,
-            "label": "Midnight"
+            "hour": 0,        "label": "Midnight"
           },
           {
             "hour": 3,
-            "label": "3 AM"
+       "label": "3 AM"
           },
           {
             "hour": 6,
